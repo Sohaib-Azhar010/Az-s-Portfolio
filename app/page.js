@@ -15,7 +15,7 @@ export default function Page() {
             <Header />
             <About />
             <Services />
-            <Work />
+            {/* <Work /> */}
             <Contact />
             <Footer />
         </>
