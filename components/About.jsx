@@ -33,7 +33,18 @@ export default function About() {
             <div className="flex w-full flex-col lg:flex-row items-center gap-20 my-20">
                 <div className="max-w-max mx-auto relative">
                     <div className="bg-white w-48 sm:w-64 aspect-square rounded-full shadow-[0_4px_55px_rgba(149,0,162,0.15)] flex items-center justify-center relative">
-                        <img src="/assets/circular-text.png" alt="" className="w-full animate-spin_slow" />
+                        <div className="w-full h-full absolute animate-spin_slow">
+                            <svg viewBox="0 0 200 200" className="w-full h-full">
+                                <defs>
+                                    <path id="circlePath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
+                                </defs>
+                                <text className="font-Ovo font-semibold text-lg fill-black font-bold tracking-widest uppercase">
+                                    <textPath href="#circlePath" startOffset="50%" textAnchor="middle">
+                                        Professional Web Developer   Professional Web Developer
+                                    </textPath>
+                                </text>
+                            </svg>
+                        </div>
                         <img src="/assets/dev-icon.png" alt="" className="w-1/4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
                     </div>
                 </div>
