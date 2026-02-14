@@ -20,11 +20,9 @@ export default function Footer() {
                 </div>
             </div>
             <div className="text-center sm:flex items-center justify-between border-t border-gray-400 mx-[10%] mt-12 py-3">
-                <p>© {new Date().getFullYear()} <a href="https://prebuiltui.com?utm_source=arooj" target="_blank">Arooj Zahid</a> • Distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a> • All rights reserved.</p>
+                <p>© {new Date().getFullYear()} <a href="https://prebuiltui.com?utm_source=arooj" target="_blank">Arooj Zahid</a> • All rights reserved.</p>
                 <ul className="flex items-center gap-10 justify-center mt-4 sm:mt-0">
-                    <li><a target='_blank' href="#!">GitHub</a></li>
-                    <li><a target='_blank' href="#!">LinkedIn</a></li>
-                    <li><a target='_blank' href="#!">Twitter</a></li>
+                    <li><a target='_blank' href="https://www.linkedin.com/in/arooj-zahid-7900b1372/">LinkedIn</a></li>
                 </ul>
             </div>
         </div>
