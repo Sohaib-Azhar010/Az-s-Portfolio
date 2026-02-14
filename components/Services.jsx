@@ -1,27 +1,27 @@
 export default function Services() {
     const services = [
         {
-            name: 'Web design',
+            name: 'Web Development',
             icon: '/assets/web-icon.png',
-            description: 'Web development is the process of building, programming...',
+            description: 'Building responsive, high-performance websites using HTML, CSS, JavaScript, and modern frameworks like React & Next.js.',
             link: '#',
         },
         {
-            name: 'Mobile app',
+            name: 'eCommerce Solutions',
             icon: '/assets/mobile-icon.png',
-            description: 'Web development is the process of building, programming...',
+            description: 'Creating robust online stores and service-based platforms with seamless functionality and user experience.',
             link: '#',
         },
         {
-            name: 'UI/ UX design',
+            name: 'UI/UX Design',
             icon: '/assets/ui-icon.png',
-            description: 'Web development is the process of building, programming...',
+            description: 'Designing intuitive and visually appealing interfaces that ensure a smooth and engaging user journey.',
             link: '#',
         },
         {
-            name: 'Graphics design',
+            name: 'SEO & Optimization',
             icon: '/assets/graphics-icon.png',
-            description: 'Web development is the process of building, programming...',
+            description: 'Optimizing websites for speed, performance, and search engine visibility to drive organic traffic.',
             link: '#',
         }
     ];
@@ -37,7 +37,6 @@ export default function Services() {
                         <img src={service.icon} alt="" className="w-10" />
                         <h3 className="text-lg my-4 text-gray-700 dark:text-white">{service.name}</h3>
                         <p className="text-sm text-gray-600 leading-5 dark:text-white/80">{service.description}</p>
-                        <a href={service.link} className="flex items-center gap-2 text-sm mt-5">Read more <img src="/assets/right-arrow.png" alt="" className="w-4" /></a>
                     </div>
                 ))}
             </div>
