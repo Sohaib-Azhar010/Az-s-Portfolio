@@ -16,7 +16,7 @@ export default function About() {
             name: 'Education',
             icon1: '/assets/edu-icon.png',
             icon2: '/assets/edu-icon-dark.png',
-            description: 'FSC - Peak Solution CLG',
+            description: 'Graduation - Riphah International',
         },
         {
             name: 'Project Areas',
