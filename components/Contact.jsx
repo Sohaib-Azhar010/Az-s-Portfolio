@@ -1,104 +1,29 @@
 'use client'
-import { useEffect, useState } from 'react'
+import React from 'react'
 
 export default function Contact() {
-    const [result, setResult] = useState("");
-    const onSubmit = async (event) => {
-        event.preventDefault();
-        const hCaptcha = event.target.querySelector('textarea[name=h-captcha-response]').value;
-        if (!hCaptcha) {
-            event.preventDefault();
-            setResult("Please fill out captcha field");
-            return
-        }
-        setResult("Sending....");
-        const formData = new FormData(event.target);
 
-        // ----- Enter your Web3 Forms Access key below---------
 
-        formData.append("access_key", "--- enter your access key here-------");
-
-        const res = { success: true }
-        // const res = await fetch("https://api.web3forms.com/submit", {
-        //     method: "POST",
-        //     body: formData
-        // }).then((res) => res.json());
-
-        if (res.success) {
-            console.log("Success", res);
-            setResult(res.message);
-            event.target.reset();
-        } else {
-            console.log("Error", res);
-            setResult(res.message);
-        }
-    };
-
-    function CaptchaLoader() {
-        const captchadiv = document.querySelectorAll('[data-captcha="true"]');
-        if (captchadiv.length) {
-            let lang = null;
-            let onload = null;
-            let render = null;
-
-            captchadiv.forEach(function (item) {
-                const sitekey = item.dataset.sitekey;
-                lang = item.dataset.lang;
-                onload = item.dataset.onload;
-                render = item.dataset.render;
-
-                if (!sitekey) {
-                    item.dataset.sitekey = "50b2fe65-b00b-4b9e-ad62-3ba471098be2";
-                }
-            });
-
-            let scriptSrc = "https://js.hcaptcha.com/1/api.js?recaptchacompat=off";
-            if (lang) {
-                scriptSrc += `&hl=${lang}`;
-            }
-            if (onload) {
-                scriptSrc += `&onload=${onload}`;
-            }
-            if (render) {
-                scriptSrc += `&render=${render}`;
-            }
-
-            var script = document.createElement("script");
-            script.type = "text/javascript";
-            script.async = true;
-            script.defer = true;
-            script.src = scriptSrc;
-            document.body.appendChild(script);
-        }
-    }
-
-    useEffect(() => {
-        CaptchaLoader();
-    }, []);
     return (
         <div id="contact" className="w-full px-[12%] py-10 scroll-mt-20 bg-[url('/assets/footer-bg-color.png')] bg-no-repeat bg-[length:90%_auto] bg-center dark:bg-none">
 
             <h4 className="text-center mb-2 text-lg font-Ovo">Connect with me</h4>
             <h2 className="text-center text-5xl font-Ovo">Get in touch</h2>
-            <p className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">I&apos;d love to hear from you! If you have any questions, comments or feedback, please use the form below.</p>
+            <p className="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">I&apos;d love to hear from you! Feel free to reach out directly via email or WhatsApp.</p>
 
-            <form onSubmit={onSubmit} className="max-w-2xl mx-auto">
-
-                <input type="hidden" name="subject" value="Arooj Zahid - New form Submission" />
-
-                <div className="grid grid-cols-auto gap-6 mt-10 mb-8">
-                    <input type="text" placeholder="Enter your name" className="flex-1 px-3 py-2 focus:ring-1 outline-none border border-gray-300 dark:border-white/30 rounded-md bg-white dark:bg-darkHover/30" required name="name" />
-
-                    <input type="email" placeholder="Enter your email" className="flex-1 px-3 py-2 focus:ring-1 outline-none border border-gray-300 dark:border-white/30 rounded-md bg-white dark:bg-darkHover/30" required name="email" />
-                </div>
-                <textarea rows="6" placeholder="Enter your message" className="w-full px-4 py-2 focus:ring-1 outline-none border border-gray-300 dark:border-white/30 rounded-md bg-white mb-6 dark:bg-darkHover/30" required name="message"></textarea>
-                <div className="h-captcha mb-6 max-w-full" data-captcha="true"></div>
-                <button type='submit' className="py-2 px-8 w-max flex items-center justify-between gap-2 bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500 dark:bg-transparent dark:border dark:border-white/30 dark:hover:bg-darkHover">
-                    Submit now
-                    <img src="/assets/right-arrow-white.png" alt="" className="w-4" />
-                </button>
-                <p className='mt-4'>{result}</p>
-            </form>
+            <div className="flex flex-col items-center gap-4">
+                <a href="mailto:aroojz33355@gmail.com" className="flex items-center gap-2 text-lg font-Ovo border border-gray-400 rounded-full px-8 py-3 hover:bg-white/50 dark:hover:bg-darkHover duration-500">
+                    <img src="/assets/mail_icon.png" alt="" className="w-6 dark:hidden" />
+                    <img src="/assets/mail_icon_dark.png" alt="" className="w-6 hidden dark:block" />
+                    aroojz33355@gmail.com
+                </a>
+                <a href="https://wa.me/923214260731" target="_blank" className="flex items-center gap-2 text-lg font-Ovo border border-gray-400 rounded-full px-8 py-3 hover:bg-white/50 dark:hover:bg-darkHover duration-500">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-green-500">
+                        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.13 1.25 4.74 1.25 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2zM12.05 20.21c-1.5 0-2.96-.39-4.27-1.15l-.3-.18-3.15.83.84-3.07-.2-.31c-.82-1.27-1.24-2.75-1.24-4.27 0-4.42 3.59-8.01 8.01-8.01s8.01 3.59 8.01 8.01-3.59 8.01-8.01 8.01zm4.39-6.04c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.19-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.01-.37.1-.48.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.19-.46-.39-.4-.54-.4h-.46c-.16 0-.42.06-.64.3-.22.24-.86.84-.86 2.04s.88 2.36 1 2.69c.12.32 1.73 2.65 4.2 3.7.59.25 1.05.4 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z" />
+                    </svg>
+                    <span>+92 321 4260731</span>
+                </a>
+            </div>
         </div>
     )
 }
